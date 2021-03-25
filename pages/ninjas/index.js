@@ -1,5 +1,8 @@
 import styles from '../../styles/Ninjas.module.css';
 import Link from 'next/link';
+import Metadata from '../../comps/Metadata';
+
+
 
 export const getStaticProps = async () => {
 
@@ -15,6 +18,8 @@ export const getStaticProps = async () => {
 
 const Ninjas = ({ ninjas })=>{
     return (
+    <>
+        <Metadata title={`All Ninjas| Ninja Listing`}  description={`Ninja Listing.Get all ninjas names listing .`}/>
         <div>
             {ninjas.map(ninja => (
                 <Link href={`/ninjas/${ninja.id}`} key={ninja.id}>
@@ -24,6 +29,7 @@ const Ninjas = ({ ninjas })=>{
                 </Link>
             ))}
         </div>
+    </>
     );
 }
 
